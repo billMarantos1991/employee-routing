@@ -22,7 +22,7 @@ export class EmployeeService {
       return this.http.get(
         "https://maps.google.com/maps/api/geocode/json?address=" +
           term +
-          "CA&sensor=false&key=AIzaSyA88Mj4CR3XHnLn7su4emYLbyPat0JCbGI"
+          "CA&sensor=false&key=youtapi"
       );
     }
 
