@@ -1,0 +1,14 @@
+<div class="card ">
+  <div class="card-body">
+      <h5 class="card-title">Select an Attribute to filter employees</h5>
+      <app-attributes-list 
+      [attributes] ="attributes" 
+      [isEditable]="false" 
+      (selectedAttribute)="selectAttribute($event)">
+      </app-attributes-list>
+  </div>
+</div>
+
+
+  
+  

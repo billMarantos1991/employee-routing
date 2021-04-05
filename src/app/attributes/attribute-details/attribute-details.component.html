@@ -1,0 +1,43 @@
+<div class="card ">
+    <div *ngIf="currentAttribute" class="card-body">
+        <h5 class="card-title">List of Attributes</h5>
+
+        <form>
+            <div class="mb-6">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" id="description" name="description" 
+                required  #description="ngModel"
+                [(ngModel)]="currentAttribute.description" 
+                class="form-control" >
+                <div [hidden]="description.valid || description.pristine"
+                class="alert alert-danger"> The Description is required</div>                 
+            </div>
+            
+            <div class="mb-6 ">
+                <label for="attributevalue"  class="form-label">Value</label>
+                <input type="text" id="attributevalue" name="attributevalue" 
+                required #attributevalue="ngModel"
+                [(ngModel)]="currentAttribute.value" 
+                class="form-control" >
+                <div [hidden]="attributevalue.valid || attributevalue.pristine"
+                class="alert alert-danger"> The Value is required</div>                    
+            </div>
+          </form>  
+        <div class="row pt-2">
+          
+            <div class="col-6 text-left">
+
+                <button  class="btn btn-primary" routerLink="/attributes">Back</button>
+            </div>  
+            <div class="col-6  text-right">
+                    <button type="submit" class="btn btn-primary" (click)="updateAttribute()">Update</button>
+            </div>        
+        </div>        
+     
+    </div>
+    <div *ngIf="!currentAttribute">
+        <br />
+        <p>Cannot access this Attribute...</p>
+    </div>    
+</div>
+  

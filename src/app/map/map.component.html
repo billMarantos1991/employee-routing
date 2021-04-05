@@ -1,0 +1,29 @@
+
+
+<div class="card ">
+    <div  class="card-body">
+        <h5 class="card-title">Routing of Employee {{sellectedEmployee.firstName +' '+sellectedEmployee.lastName+' Transportation Type:'+transitText}}</h5>
+        <agm-map 
+        [latitude]="sellectedEmployee.address.latitude" 
+        [longitude]="sellectedEmployee.address.langtitude"  
+      
+        [disableDefaultUI]="true">
+        
+        
+        
+        <agm-direction *ngFor="let employee of employees;"
+        [travelMode]="transitOptions"
+        [origin]="{lat:sellectedEmployee.address.latitude,lng:sellectedEmployee.address.langtitude}" 
+        [markerOptions]="markerOptions" 
+        [renderOptions]="renderOptions" 
+        [destination]="{lat:employee.address.latitude,lng:employee.address.langtitude}" 
+        
+        >  
+        
+        </agm-direction>
+        
+        
+        </agm-map>
+      
+</div>
+  

@@ -1,0 +1,16 @@
+<div class="card ">
+    <div class="card-body">
+        <h5 class="card-title">List of Employees</h5>
+
+  
+        <app-employees-list 
+        [employees] ="employees" 
+        [isEditable]="false" 
+        (selectedEmployee)="selectedEmployee($event)"
+        >
+        </app-employees-list>    
+    </div>
+ 
+</div>
+
+

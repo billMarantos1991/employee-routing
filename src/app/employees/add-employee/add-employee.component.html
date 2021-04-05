@@ -1,0 +1,124 @@
+<div class="card ">
+    <div  class="card-body">
+        <h5  class="card-title">Add new Employee</h5>
+    
+        <form >
+            <div class="row">
+                <div class="col-6">
+                    <fieldset class="border p-2" >
+                        <legend class="w-auto" >Personal Info</legend>
+                                        
+                        <div class="mb-6">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text"   id="firstName" name="firstName" required  [(ngModel)]="employee.firstName" #firstName="ngModel" class="form-control" >
+                            <div [hidden]="firstName.valid || firstName.pristine"
+                            class="alert alert-danger"> The First Name is required</div>     
+                        </div>
+                        
+                        <div class="mb-6 ">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required [(ngModel)]="employee.lastName"  #lastName="ngModel"  class="form-control" >
+                            <div [hidden]="lastName.valid || lastName.pristine"
+                            class="alert alert-danger"> The Last Name is required</div>                                 
+                        </div>
+                        <div class="mb-6 ">
+                            <label for="dateOfBirthday" class="form-label">Date of Birthday</label>
+                            <input type="date" id="dateOfBirthday" name="dateOfBirthday" required [(ngModel)]="employee.dateOfBirthday"  #dateOfBirthday="ngModel" class="form-control" >
+                            <div [hidden]="dateOfBirthday.valid || dateOfBirthday.pristine"
+                            class="alert alert-danger"> The Date Of Birthday is required</div>                             
+                        </div>      
+                    
+                        <div class="mb-6">
+                        <label for="hasVehicle" class="form-label">Has Vehicle</label>
+                        <select class="form-control" [(ngModel)]="employee.hasVehicle"  name="hasVehicle" >
+                            <option value="true" >Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-6">
+                    <fieldset class="border p-2" >
+                        <legend class="w-auto" >Address Info</legend>          
+                        <div class="mb-6">
+                            <label for="street" class="form-label">Street</label>
+                            <input type="text"   id="street" name="street" required  [(ngModel)]="employee.address.street" #street="ngModel" class="form-control" >
+                            <div [hidden]="street.valid || street.pristine"
+                            class="alert alert-danger"> The Street is required</div>     
+                        </div>
+                        <div class="mb-6">
+                            <label for="number" class="form-label">Number</label>
+                            <input type="text"   id="number" name="number" required  [(ngModel)]="employee.address.number" #number="ngModel" class="form-control" >
+                            <div [hidden]="  number.valid || number.pristine"
+                            class="alert alert-danger"> The Street is required</div>     
+                        </div>  
+                        <div class="mb-6">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text"   id="city" name="city" required  [(ngModel)]="employee.address.city" #city="ngModel" class="form-control" >
+                            <div [hidden]="city.valid || city.pristine"
+                            class="alert alert-danger"> The City is required</div>     
+                        </div>
+                        <div class="mb-6">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text"   id="country" name="country" required  [(ngModel)]="employee.address.country" #country="ngModel" class="form-control" >
+                            <div [hidden]="country.valid || country.pristine"
+                            class="alert alert-danger"> The Country is required</div>     
+                        </div>                        
+                        <div class="mb-6">
+                            <label for="zipCode" class="form-label">Zip Code</label>
+                            <input type="text"   id="zipCode" name="zipCode" [(ngModel)]="employee.address.zipCode"  class="form-control" >
+                        
+                        </div>                                               
+                    </fieldset>            
+                </div>
+            </div>
+            <fieldset class="border p-2" >
+                <legend class="w-auto" >Attribute Connections</legend>          
+                <div class="row ">
+                    <div class="col-lg-5">
+                        <label >Not Connected</label>
+                    </div>
+                    <div class="col-lg-2" ></div>
+                    <div class="col-lg-5">
+                        <label >Connected</label>
+                    </div>    
+                </div>
+                <div class="row ">
+                    <div class="col-lg-5">
+                      
+                      <select  class="form-control" [(ngModel)]="selectedAttributesToAdd"  multiple name="myAvailableAttribute">
+                      <option *ngFor="let avattribute of availableAttributes" [ngValue]="avattribute">{{avattribute.description+' '+avattribute.value}}</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-2" >
+                        <div class="btn-group-sm justify-content-between">
+                            <button (click)="assign()" class="btn  btn-primary btn-block" ><i class="bi bi-arrow-right"></i> </button>
+                            <button (click)="unassign()" class="btn  btn-primary btn-block" ><i class="bi bi-arrow-left"></i> </button>
+                        </div>
+                  
+                    </div>
+                    <div class="col-lg-5">
+                     
+                        <select class="form-control" [(ngModel)]="selectedAttributesToRemove"  multiple name="myselectAttribute">
+                            <option *ngFor="let attribute of selectedAttributes"  [ngValue]="attribute">{{attribute.description+' '+attribute.value}}</option>
+                        </select>
+                    </div>
+                </div>                                           
+            </fieldset>           
+            <div class="row pt-2">
+              
+                <div class="col-6 text-left">
+    
+                    <button  class="btn btn-primary" routerLink="../">Back</button>
+                </div>  
+                <div class="col-6  text-right">
+                    <button type="submit" class="btn btn-primary" (click) ="createEmployee()">Create</button>
+                </div>        
+            </div>                          
+        </form>  
+      
+   
+    </div>
+    
+</div>
+ 

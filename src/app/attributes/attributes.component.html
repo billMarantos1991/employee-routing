@@ -1,0 +1,17 @@
+<div class="card ">
+  <div class="card-body">
+      <h5 class="card-title">List of Attributes</h5>
+      <div class="row  pb-2 ">
+        <div class="col">
+          <button type="button" class="btn btn-success" routerLink="/attributes/addAtribute">Add New</button>  
+        </div>  
+      </div>
+
+      <app-attributes-list [attributes] ="attributes" [isEditable]="true" (deletedAttribute)="deleteAttribute($event)">
+
+      </app-attributes-list>
+ 
+  </div>
+</div>
+
+

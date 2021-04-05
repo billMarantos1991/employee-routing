@@ -1,0 +1,33 @@
+<table class="table table-hover  ">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Description</th>
+        <th scope="col">Value</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let attribute of attributes;let i = index;" (click)="onSelect( attribute.attributeId );">
+        <th scope="row">{{i+1}}</th>
+        <td>{{attribute.description}}</td>
+        <td>{{attribute.value}}</td>
+        <td>
+          <button 
+          *ngIf="isEditable" 
+          type="button" 
+          class="btn btn-primary" 
+          routerLink="/attributes/{{ attribute.attributeId }}">Edit</button>
+        </td>
+        <td>
+          <button 
+          *ngIf="isEditable" 
+          type="button" 
+          class="btn btn-danger" 
+          (click)="deleteAttribute(attribute.attributeId)">Delete</button>
+        </td>                    
+      </tr>
+    
+    </tbody>
+</table> 
