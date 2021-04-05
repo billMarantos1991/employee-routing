@@ -59,7 +59,7 @@ import { InfoModalComponent } from './widgets/info-modal/info-modal.component';
     AgmCoreModule.forRoot({
       // please get your own API key here:
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
-      apiKey: 'AIzaSyDOfAm3scPmVW3AdCOA9EWGuB3ui7M5P3k'
+      apiKey: 'your api'
     }),    
     AgmDirectionModule,
     RouterModule,
